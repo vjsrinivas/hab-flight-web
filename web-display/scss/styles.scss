@@ -1,17 +1,76 @@
 $padding: 6px;
+$font-stack: Helvetica, Arial, sans-serf;
+$font-color: #58595B;
+$border-color: rgba(88,89,91,0.5);
+$font-invert: white;
 
-nav {
-  ul {
-    margin: 0;
-    padding: $padding;
-    list-style: none;
+$tn: #FF8200;
+$positive-color: #579584;
+$error-color: #E65933;
+
+@mixin transition-tar(){
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -ms-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+%banner-top{
+  @include transition-tar();
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+
+  #loading-header{
+    margin-top: 300px;
   }
 
-  li { display: inline-block; }
-
-  a {
-    display: block;
-    padding: $padding 12px;
-    text-decoration: none;
+  #loading-what{
+    color: $border-color;
+    @include transition-tar();
   }
+
+  .btn{
+    color: white !important;
+    border-radius: 50px;
+    background-color: $tn;
+    font-size: 18px;
+    border: 3px solid $tn;
+  }
+}
+
+body{
+    font: $font-stack;
+    color: $font-color;
+    background-color: white;
+}
+
+body#load{
+  overflow: hidden;
+}
+
+p.center-text.white{
+  @extend %banner-top;
+  border-bottom: 1px solid;
+  border-bottom-color: $border-color;
+}
+
+p.center-text.orange{
+  @extend %banner-top;
+  background-color: $tn;
+  color: white;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.badge-orange{
+  margin-left: 10px;
+  background-color: $tn !important;
 }
